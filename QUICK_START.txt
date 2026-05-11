@@ -1,0 +1,100 @@
+"""
+QUICK START GUIDE
+=================
+
+TWO WAYS TO USE THE APPLICATION:
+
+1. PLAY THE GAME
+   Command: python main.py
+   
+   Steps:
+   - Click "Load Image"
+   - Select any image file (JPG, PNG, BMP)
+   - Look at RIGHT image for 5 differences
+   - Click on differences to mark them found
+   - Red circles = found differences
+   - Blue circles = revealed differences (if you click "Reveal")
+   - Max 3 mistakes per image
+
+2. PREVIEW DIFFERENCES FIRST (Debug Mode)
+   Command: python debug_preview.py
+   
+   Steps:
+   - Click "Load Image to Preview Differences"
+   - LEFT = original, RIGHT = modified (with differences)
+   - See exactly where the differences are
+   - Helps understand what to look for
+   - Then play the game!
+
+FILE DESCRIPTIONS:
+==================
+
+main.py
+  - Entry point for the game
+  - Launches Tkinter window
+
+game_ui.py
+  - GUI with canvases for images
+  - Handles user clicks
+  - Shows status (found, remaining, mistakes)
+
+game_engine.py
+  - Core game logic
+  - Manages differences
+  - Validates clicks
+
+alterations.py
+  - Three alteration types:
+    1. Colour Shift (50-100° hue change)
+    2. Blur (25-45 pixel kernel)
+    3. Brightness (80-140 unit change)
+
+debug_preview.py
+  - Shows differences visually
+  - Helps understand the game
+
+IMPROVEMENTS MADE:
+==================
+
+✓ Colour shift: 2.5x more visible (50-100° hue change)
+✓ Blur effect: 67% stronger (25-45 kernel)
+✓ Brightness: 40% more intense changes
+✓ Regions: 50% larger (60-130 pixels)
+✓ All code verified and working
+
+GAME RULES:
+===========
+
+- 5 differences per image
+- 3 mistakes allowed per image
+- Click to find differences
+- Get within ~30 pixels of difference center
+- Red circle = found
+- Blue circle = revealed
+- Load new image when done
+
+TIPS:
+=====
+
+1. Use debug_preview.py first to understand differences
+2. Differences are on RIGHT image only
+3. Compare with LEFT image (original)
+4. Look for:
+   - Colour changes (shifted hues)
+   - Blurry regions (soft/fuzzy areas)
+   - Brightness changes (darker/lighter patches)
+5. Click near the CENTER of differences for best results
+
+KEYBOARD SHORTCUTS:
+===================
+
+In main game:
+- [Load Image] button - open file browser
+- [Reveal Differences] - show all with blue circles
+
+Menu:
+- File > Load Image - same as button
+- File > Quit - exit application
+
+That's it! Have fun playing! 🎮
+"""
