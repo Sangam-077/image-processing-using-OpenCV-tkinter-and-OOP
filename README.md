@@ -203,3 +203,9 @@ Met:
 - Reveal button marks all unfound with blue circles on both images.
 - User can load a new image to restart.
 
+### Authors
+- Sujan Gautam
+- Hemraj Budhathoki
+- Sangam GC
+- Aakriti BC
+
