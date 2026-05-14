@@ -260,6 +260,7 @@ class GameUI:
 
         self._btn_reveal.config(state=tk.NORMAL)
         self._render_images()
+        self._refresh_stats()
         self._update_status("Image loaded — find the 5 differences!")
 
     def _on_canvas_click(self, event: tk.Event) -> None:
@@ -293,6 +294,7 @@ class GameUI:
             self._redraw_images()
             if self._engine.is_complete():
                 self._update_status("🎉 All differences found!")
+                self._refresh_stats()   # update counters BEFORE the dialog blocks
                 self._show_completion()
             else:
                 self._update_status(f"✓ Found one! {self._engine.remaining} remaining.")
@@ -408,7 +410,8 @@ class GameUI:
 
     def _refresh_stats(self) -> None:
         """Update all three status-bar counters from current engine state."""
-        self._var_found.set(f"Found: {self._engine.total_found}")
+        round_found = sum(1 for d in self._engine.differences if d.found)
+        self._var_found.set(f"Found: {round_found}")
         self._var_remaining.set(f"Remaining: {self._engine.remaining}")
         mistake_color = PALETTE["danger"] if self._engine.is_locked else PALETTE["warning"]
         self._var_mistakes.set(
@@ -424,6 +427,6 @@ class GameUI:
         messagebox.showinfo(
             "Congratulations! 🎉",
             f"You found all {self._engine.NUM_DIFFERENCES} differences!\n\n"
-            f"Total found so far: {self._engine.total_found}\n\n"
+            f"🏆 Total differences found across all rounds: {self._engine.total_found}\n\n"
             "Load a new image to keep playing.",
         )
